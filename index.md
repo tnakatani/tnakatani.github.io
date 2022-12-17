@@ -1,3 +1,5 @@
+![](img/clown.jpeg)
+
 [Github](https://github.com/tnakatani)
 
 ## Course Notes
