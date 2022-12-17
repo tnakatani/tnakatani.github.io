@@ -12,3 +12,4 @@
 ## Notes from Books / MOOCs
 
 - [R plotting notes](https://tnakatani.github.io/books/r_for_ds/notes.html)
+- [Grokking Algorithms (Bhagarva 2016)](https://tnakatani.github.io/books/grok_algos/grok_algo_notes.html)
