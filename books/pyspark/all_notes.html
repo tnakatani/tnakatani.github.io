@@ -13200,7 +13200,7 @@ python -m ipykernel install --user --name=pyspark</code></pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-2:-Your-first-Pyspark-application">Chapter 2: Your first Pyspark application<a class="anchor-link" href="#Chapter-2:-Your-first-Pyspark-application">¶</a></h2>
+<h4 id="Your-first-Pyspark-application">Your first Pyspark application<a class="anchor-link" href="#Your-first-Pyspark-application">¶</a></h4>
 </div>
 </div>
 </div>
@@ -13213,7 +13213,7 @@ python -m ipykernel install --user --name=pyspark</code></pre>
 <li>Transform the data via a few simple instructions or a very complex machine learning model</li>
 <li>Export the resulting data, either into a file to be fed into an app or by summarizing our findings into a visualization.</li>
 </ol>
-<h3 id="SparkSession-entry-point"><code>SparkSession</code> entry point<a class="anchor-link" href="#SparkSession-entry-point">¶</a></h3><ul>
+<h4 id="SparkSession-entry-point"><code>SparkSession</code> entry point<a class="anchor-link" href="#SparkSession-entry-point">¶</a></h4><ul>
 <li><code>SparkSession</code> provides an entry point to Spark.<ul>
 <li>Wraps <code>SparkContext</code> and provides functionality for interacting with the data.</li>
 </ul>
@@ -13221,7 +13221,7 @@ python -m ipykernel install --user --name=pyspark</code></pre>
 <li>Can be used as a normal object imported from a library in Python.</li>
 <li><code>SparkSession</code> builder: builder pattern with set of methods to create a configurable object.</li>
 </ul>
-<h4 id="Creating-a-SparkSession-entry-point-from-scratch">Creating a <code>SparkSession</code> entry point from scratch<a class="anchor-link" href="#Creating-a-SparkSession-entry-point-from-scratch">¶</a></h4>
+<h5 id="Creating-a-SparkSession-entry-point-from-scratch">Creating a <code>SparkSession</code> entry point from scratch<a class="anchor-link" href="#Creating-a-SparkSession-entry-point-from-scratch">¶</a></h5>
 </div>
 </div>
 </div>
@@ -13397,7 +13397,7 @@ Input <span class="ansi-green-fg">In [1]</span>, in <span class="ansi-cyan-fg">&
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Application-Design">Application Design<a class="anchor-link" href="#Application-Design">¶</a></h2><p><strong>Goal: What are the most popular words in the Jane Austen's <em>Pride and Prejudice</em>?</strong></p>
+<h3 id="Application-Design">Application Design<a class="anchor-link" href="#Application-Design">¶</a></h3><p><strong>Goal: What are the most popular words in the Jane Austen's <em>Pride and Prejudice</em>?</strong></p>
 <p>Steps:</p>
 <ol>
 <li>Read: Read the input data (we’re assuming a plain text file)</li>
@@ -13413,7 +13413,7 @@ Input <span class="ansi-green-fg">In [1]</span>, in <span class="ansi-cyan-fg">&
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Data-Exploration">Data Exploration<a class="anchor-link" href="#Data-Exploration">¶</a></h2><p>PySpark provide two main structures for storing data when performing manipulations:</p>
+<h3 id="Data-Exploration">Data Exploration<a class="anchor-link" href="#Data-Exploration">¶</a></h3><p>PySpark provide two main structures for storing data when performing manipulations:</p>
 <ol>
 <li>The Resilient Distributed Dataset (or RDD)</li>
 <li>The data frame; Stricter version of RDD. Makes heavy use of the concept of <em>columns</em> where you perform ops on columns instead of on records (like in RDD).  <ul>
@@ -13939,7 +13939,7 @@ only showing top 20 rows
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exercises">Exercises<a class="anchor-link" href="#Exercises">¶</a></h2><h3 id="2.1">2.1<a class="anchor-link" href="#2.1">¶</a></h3><p>Rewrite the following code snippet, removing the withColumnRenamed method. Which version is clearer and easier to read?</p>
+<h3 id="Exercises">Exercises<a class="anchor-link" href="#Exercises">¶</a></h3><h4 id="2.1">2.1<a class="anchor-link" href="#2.1">¶</a></h4><p>Rewrite the following code snippet, removing the withColumnRenamed method. Which version is clearer and easier to read?</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="n">col</span><span class="p">,</span> <span class="n">length</span>
 
 <span class="c1"># The `length` function returns the number of characters in a string column.</span>
@@ -14003,7 +14003,7 @@ only showing top 5 rows
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.2">2.2<a class="anchor-link" href="#2.2">¶</a></h3><p>The following code blocks gives an error. What is the problem and how can you solve it?</p>
+<h4 id="2.2">2.2<a class="anchor-link" href="#2.2">¶</a></h4><p>The following code blocks gives an error. What is the problem and how can you solve it?</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="n">col</span><span class="p">,</span> <span class="n">greatest</span>
 
 <span class="n">ex22</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
@@ -14022,7 +14022,7 @@ only showing top 5 rows
     <span class="s2">"key"</span><span class="p">,</span> <span class="s2">"max_value"</span>
 <span class="p">)</span>
 </pre></div>
-<h3 id="Answer">Answer<a class="anchor-link" href="#Answer">¶</a></h3><p>The columns given are not in a list?</p>
+<h4 id="Answer">Answer<a class="anchor-link" href="#Answer">¶</a></h4><p>The columns given are not in a list?</p>
 
 </div>
 </div>
@@ -14030,7 +14030,7 @@ only showing top 5 rows
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.3">2.3<a class="anchor-link" href="#2.3">¶</a></h3><p>Let’s take our words_nonull data frame, available in listing 2.19. You can use the code in the repository (code/Ch02/end_of_chapter.py) into your REPL to get the data frame loaded.</p>
+<h4 id="2.3">2.3<a class="anchor-link" href="#2.3">¶</a></h4><p>Let’s take our words_nonull data frame, available in listing 2.19. You can use the code in the repository (code/Ch02/end_of_chapter.py) into your REPL to get the data frame loaded.</p>
 <p>a) Remove all of the occurrences of the word "is"</p>
 <p>b) (Challenge) Using the length function explained in exercise 2.1, keep only the words with more than 3 characters.</p>
 
@@ -14101,7 +14101,7 @@ only showing top 20 rows
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4">2.4<a class="anchor-link" href="#2.4">¶</a></h3><p>Remove the words is, not, the and if from your list of words, using a single <code>where()</code> method on the words_nonull data frame (see exercise 2.3). Write the code to do so.</p>
+<h4 id="2.4">2.4<a class="anchor-link" href="#2.4">¶</a></h4><p>Remove the words is, not, the and if from your list of words, using a single <code>where()</code> method on the words_nonull data frame (see exercise 2.3). Write the code to do so.</p>
 
 </div>
 </div>
@@ -14166,7 +14166,7 @@ only showing top 20 rows
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.5">2.5<a class="anchor-link" href="#2.5">¶</a></h3><p>One of your friends come to you with the following code. They have no idea why it doesn’t work. Can you diagnose the problem, explain why it is an error and provide a fix?</p>
+<h4 id="2.5">2.5<a class="anchor-link" href="#2.5">¶</a></h4><p>One of your friends come to you with the following code. They have no idea why it doesn’t work. Can you diagnose the problem, explain why it is an error and provide a fix?</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="n">col</span><span class="p">,</span> <span class="n">split</span>
 
 <span class="n">book</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">"./data/ch02/1342-0.txt"</span><span class="p">)</span>
@@ -14177,8 +14177,8 @@ only showing top 20 rows
 
 <span class="n">words</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">explode</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s2">"line"</span><span class="p">))</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"word"</span><span class="p">))</span>
 </pre></div>
-<h4 id="Answer">Answer<a class="anchor-link" href="#Answer">¶</a></h4><p>They're assigning the output of <code>book.printSchema()</code> to <code>book</code>, hence writing over the spark data frame.</p>
-<h4 id="Solution">Solution<a class="anchor-link" href="#Solution">¶</a></h4>
+<h5 id="Answer">Answer<a class="anchor-link" href="#Answer">¶</a></h5><p>They're assigning the output of <code>book.printSchema()</code> to <code>book</code>, hence writing over the spark data frame.</p>
+<h5 id="Solution">Solution<a class="anchor-link" href="#Solution">¶</a></h5>
 </div>
 </div>
 </div>
@@ -16634,8 +16634,8 @@ Records in c_time_no_null:  324
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Reading-the-Data">Reading the Data<a class="anchor-link" href="#Reading-the-Data">¶</a></h2><p>For this chapter, we use a JSON dump of the information about the TV Show Silicon Valley, from TV Maze.</p>
-<h3 id="JSON-params">JSON params<a class="anchor-link" href="#JSON-params">¶</a></h3><ul>
+<h3 id="Reading-the-Data">Reading the Data<a class="anchor-link" href="#Reading-the-Data">¶</a></h3><p>For this chapter, we use a JSON dump of the information about the TV Show Silicon Valley, from TV Maze.</p>
+<h4 id="JSON-params">JSON params<a class="anchor-link" href="#JSON-params">¶</a></h4><ul>
 <li>No need for delimiters like CSV</li>
 <li>No need to infer data type</li>
 <li>Contains <strong>hierarchical data</strong>, unlike CSVs</li>
@@ -16795,7 +16795,7 @@ Records in c_time_no_null:  324
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Spark's-complex-column-types:-array,-map-and-struct">Spark's complex column types: <code>array</code>, <code>map</code> and <code>struct</code><a class="anchor-link" href="#Spark's-complex-column-types:-array,-map-and-struct">¶</a></h2><h3 id="array"><code>array</code><a class="anchor-link" href="#array">¶</a></h3><ul>
+<h3 id="Spark's-complex-column-types:-array,-map-and-struct">Spark's complex column types: <code>array</code>, <code>map</code> and <code>struct</code><a class="anchor-link" href="#Spark's-complex-column-types:-array,-map-and-struct">¶</a></h3><h4 id="array"><code>array</code><a class="anchor-link" href="#array">¶</a></h4><ul>
 <li>PySpark arrays are containers for values of the same type, unlike JSON.</li>
 <li><strong>PySpark will not raise an error if you try to read an array-type column with multiple types</strong>. Instead, it will simply default to the lowest common denominator, usually the string.</li>
 <li>Many array functions are available from <code>pyspark.sql.functions</code></li>
