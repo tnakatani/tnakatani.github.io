@@ -11,6 +11,6 @@
 
 ## Notes from Books / MOOCs
 
-- [R plotting notes](https://tnakatani.github.io/books/r_for_ds/notes.html)
 - [Data Analysis with Python and PySpark (Rioux 2022)](https://tnakatani.github.io/books/pyspark/all_notes.html)
 - [Grokking Algorithms (Bhagarva 2016)](https://tnakatani.github.io/books/grok_algos/grok_algo_notes.html)
+- [R fro Data Science (Grolemund, Wicknam 2016), partial chapters](https://tnakatani.github.io/books/r_for_ds/notes.html)
