@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>nb_convert</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../style/style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="adjusting-css-when-using-jupyter-nb_convert">Adjusting CSS when using jupyter nb_convert</h1>
+<p>Problem: I couldn’t figure out how to style the width of images when printing my jupyter notebooks.</p>
+<p>Solution: The CSS file is stored under the nbconvert package. I use anaconda, so the package was found under the path</p>
+<pre><code>/usr/local/Caskroom/miniconda/base/envs/my_env/lib/python3.8/site-packages/nbconvert/resources/style.min.css</code></pre>
+<p>Under the css file, there is a section specifically for print output. It turns out that it had explicitly set the width and marked it as <code>!important</code>.</p>
+<pre><code>img {
+max-width: 100% !important;
+}</code></pre>
+<p>You can either edit the inline CSS in the html output, or edit it in the css file path above.</p>
+</body>
+</html>
