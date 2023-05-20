@@ -8,6 +8,10 @@
 - [CS7637 - Knowledge-based AI](https://tnakatani.github.io/omscs/cs7637/cs7637_notes.html)
 - [CS6603 - AI, Ethics and Society](https://tnakatani.github.io/omscs/cs6603/cs6603_notes.html)
 - [ISYE6501 - Introduction to Analytics Modeling](https://tnakatani.github.io/omscs/isye6501/isye6501_notes.html)
+- CS7641 - Machine Learning
+    - [Supervised Learning notes](https://tnakatani.github.io/omscs/cs7641/sl_notes.html)
+    - [Unsupervised Learning notes](https://tnakatani.github.io/omscs/cs7641/sl_notes.html)
+    - [Reinforcement Learning notes](https://tnakatani.github.io/omscs/cs7641/rl_notes.html)
 
 ## Notes from Books / MOOCs
 
