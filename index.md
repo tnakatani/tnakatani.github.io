@@ -12,6 +12,10 @@
     - [Supervised Learning notes](https://tnakatani.github.io/omscs/cs7641/sl_notes.html)
     - [Unsupervised Learning notes](https://tnakatani.github.io/omscs/cs7641/sl_notes.html)
     - [Reinforcement Learning notes](https://tnakatani.github.io/omscs/cs7641/rl_notes.html)
+- CS6750 - Human Computer Interface (HCI)
+    - [Lecture Notes](https://tnakatani.github.io/omscs/cs6750/cs6750_notes.html)
+    - [Readings Notes](https://tnakatani.github.io/omscs/cs6750/readings.html)
+
 
 ## Notes from Books / MOOCs
 
