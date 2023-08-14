@@ -10,7 +10,7 @@
 - [ISYE6501 - Introduction to Analytics Modeling](https://tnakatani.github.io/omscs/isye6501/isye6501_notes.html)
 - CS7641 - Machine Learning
     - [Supervised Learning notes](https://tnakatani.github.io/omscs/cs7641/sl_notes.html)
-    - [Unsupervised Learning notes](https://tnakatani.github.io/omscs/cs7641/sl_notes.html)
+    - [Unsupervised Learning notes](https://tnakatani.github.io/omscs/cs7641/ul_notes.html)
     - [Reinforcement Learning notes](https://tnakatani.github.io/omscs/cs7641/rl_notes.html)
 - CS6750 - Human Computer Interface (HCI)
     - [Lecture Notes](https://tnakatani.github.io/omscs/cs6750/cs6750_notes.html)
