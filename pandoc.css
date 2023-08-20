@@ -1,6 +1,8 @@
 /* Customized from @markdowncss/air
  * https://github.com/markdowncss/air/blob/master/css/air.css */
 
+@import url(//fonts.googleapis.com/css?family=Merriweather);
+
 @media print {
   *,
   *:before,
@@ -153,7 +155,7 @@ textarea {
 
 body {
   color: #444;
-  font-family: 'Times', 'Open Sans', Helvetica, sans-serif;
+  font-family: 'Merriweather', 'Times', sans-serif;
   font-weight: 300;
   margin: 6rem auto 1rem;
   max-width: 48rem;
@@ -171,6 +173,7 @@ a,
 a:visited {
   color: #444;
   text-decoration: none;
+  font-weight: 500;
 }
 
 a:hover,
