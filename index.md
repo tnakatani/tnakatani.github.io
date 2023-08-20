@@ -1,6 +1,8 @@
-![](img/clown.jpeg)
+[Github](https://github.com/tnakatani) 
 
-[Github](https://github.com/tnakatani)
+## Publications
+- [Zhang, Nakatani et al. Improve machine translation in e-commerce multilingual search with contextual signal from search sessions (SIGIR 2023 Workshop on eCommerce)](https://www.amazon.science/publications/improve-machine-translation-in-e-commerce-multilingual-search-with-contextual-signal-from-search-sessions)
+- [Nicolich-Henkinn, Nakatani et al. Comparing data augmentation and annotation standardization to improve end-to-end spoken language understanding models (NeurIPS 2021 Workshop on Data-Centric AI)](https://www.amazon.science/publications/comparing-data-augmentation-and-annotation-standardization-to-improve-end-to-end-spoken-language-understanding-models)
 
 ## Georgia Tech OMSCS Notes
 
