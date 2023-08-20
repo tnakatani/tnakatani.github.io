@@ -4,8 +4,138 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>notes</title>
+  <title>Linear Algerbra for Machine Learning</title>
   <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     span.underline{text-decoration: underline;}
@@ -77,7 +207,6 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="/Users/taichinakatani/dotfiles/zsh/style/style.css" />
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -109,6 +238,7 @@
 <h3 id="solving-simultaneous-equations">Solving simultaneous equations</h3>
 <p><strong>Elimination</strong>: Taking second equation away from the first to solve a pair of equations. Reference: <a href="https://www.khanacademy.org/math/algebra-home/alg-system-of-equations/alg-equivalent-systems-of-equations/v/solving-systems-of-equations-by-elimination">Khan video</a>.</p>
 <p>Example 1 - elimination by summing</p>
+<div id="cb1" class="sourceCode">
 <div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;Problem - find x and y&quot;&quot;&quot;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>x <span class="op">+</span> <span class="dv">4</span>y <span class="op">=</span> <span class="fl">2.5</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>x <span class="op">-</span> <span class="dv">4</span>y <span class="op">=</span> <span class="fl">25.5</span></span>
@@ -125,7 +255,9 @@
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="op">-</span><span class="dv">8</span><span class="op">/</span><span class="dv">4</span> <span class="co"># -2</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> <span class="fl">3.5</span>, <span class="op">-</span><span class="dv">2</span></span></code></pre></div>
+</div>
 <p>Example 2 - elimination by multiplication + subtracting</p>
+<div id="cb2" class="sourceCode">
 <div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;&quot;Problem - find x and y&quot;&quot;&quot;</span><span class="st">&quot;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="st">3x - 2y = 4</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="st">6x + 3y = 15</span></span>
@@ -148,8 +280,10 @@
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="st">x = 2</span></span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="st">x, y = 2,</span></span></code></pre></div>
+</div>
 <p><strong>Substitution</strong>: Rearrange one of the equations to the from <code>x = ay + b</code> or <code>y = cx + d</code> and then substitute x or y into the other equation.</p>
 <p>Example:</p>
+<div id="cb3" class="sourceCode">
 <div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;Problem - find x and y&quot;&quot;&quot;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">-</span><span class="dv">2</span>x <span class="op">+</span> <span class="dv">2</span>y <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>x <span class="op">+</span> <span class="dv">3</span>y <span class="op">=</span> <span class="dv">6</span></span>
@@ -173,6 +307,7 @@
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> <span class="dv">3</span>, <span class="dv">7</span></span></code></pre></div>
+</div>
 <h3 id="operations-with-vectors">Operations with vectors</h3>
 <p>2 operations reviewed: additions and multiplication by scalar - Vector additions are associative (order doesn’t matter) - Defining coordinate systems allow for vector operations - Vectors doesn’t have to deal with geometry, it can be applied to feature attributes.</p>
 <hr />
@@ -245,12 +380,15 @@ np.dot(r,s)</code></pre>
 <h2 id="week-3-matrices">Week 3: Matrices</h2>
 <h3 id="how-matrices-transform">How matrices transform</h3>
 <p><strong>Matrix multiplication</strong>: We can think of a matrix multiplication as just being the multiplication of the vector sum of the transformed basis vectors.</p>
+<div id="cb5" class="sourceCode">
 <div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matrix multiplication (pseudocode)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [[<span class="dv">2</span>, <span class="dv">3</span>],[<span class="dv">10</span>, <span class="dv">1</span>]]</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">2</span>]</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>a.matmul(b) <span class="op">==</span> [<span class="dv">2</span><span class="op">*</span><span class="dv">3</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span><span class="dv">2</span>, <span class="dv">10</span><span class="op">*</span><span class="dv">3</span> <span class="op">+</span> <span class="dv">1</span><span class="op">*</span><span class="dv">2</span>])</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>a.matmul(b) <span class="op">==</span> [<span class="dv">12</span>, <span class="dv">32</span>]</span></code></pre></div>
+</div>
 <h3 id="types-of-matrix-transformation">Types of matrix transformation</h3>
+<div id="cb6" class="sourceCode">
 <div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Identity matrix - A matrix that does nothing</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">1</span>]])</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">1</span>])</span>
@@ -292,6 +430,7 @@ np.dot(r,s)</code></pre>
 <span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">1</span>])</span>
 <span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> np.matmul(a, b)</span>
 <span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(c)  <span class="co"># [-1 1]</span></span></code></pre></div>
+</div>
 <h3 id="composition-or-combination-of-matrix-transformations">Composition, or combination of matrix transformations</h3>
 <ul>
 <li>Transformations can be chained (mirror + rotate) for compositional transformations.</li>
