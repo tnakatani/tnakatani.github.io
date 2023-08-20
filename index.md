@@ -27,6 +27,7 @@
 - [Coursera (Imperial College of London) - Linear Algebra for Machine Learning (Incomplete)](https://tnakatani.github.io/moocs/la4ml/notes.html)
 - [Coursera (deeplearning.ai) - Linear Algebra for Machine Learning](https://tnakatani.github.io/moocs/coursera_linalg_for_ml/notes.html)
 - [Coursera (deeplearning.ai) - Calculus for Machine Learning](https://tnakatani.github.io/moocs/coursera_calc_for_ml/notes.html)
+- [Python Workout (Lerner, 2020)](https://tnakatani.github.io/books/python_workout/notes.html)
 
 ## Notes-to-self
 

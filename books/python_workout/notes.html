@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>notes</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../github-md.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<section id="python-workout-notes" class="markdown-body">
+<h1>Python Workout Notes</h1>
+<!-- toc -->
+<ul>
+<li><a href="#notes-on-testing-with-pytest">Notes on Testing with pytest</a>
+<ul>
+<li><a href="#showing-logs-like-print-and-logging-in-your-test">Showing logs like <code>print</code> and <code>logging</code> in your test</a></li>
+<li><a href="#using-list-comprehensions-with-assert">Using List Comprehensions with <code>assert</code></a></li>
+<li><a href="#mocks">Mocks</a>
+<ul>
+<li><a href="#mocking-opening-a-file">Mocking opening a file</a></li>
+</ul></li>
+<li><a href="#mock-writing-to-a-file">Mock Writing to a File</a></li>
+</ul></li>
+<li><a href="#lists-and-tuples">Lists and Tuples</a></li>
+<li><a href="#dicts-and-sets">Dicts and Sets</a></li>
+<li><a href="#files">Files</a></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#comprehensions">Comprehensions</a>
+<ul>
+<li><a href="#list-comprehension-vs-for-loop">List Comprehension vs For loop</a></li>
+<li><a href="#going-from-list-comprehensions-to-generator-expressions">Going from list comprehensions to generator expressions:</a></li>
+</ul></li>
+<li><a href="#modules">Modules</a>
+<ul>
+<li><a href="#whats-the-difference-between-a-module-and-a-package">What’s the difference between a module and a package?</a></li>
+<li><a href="#importing-a-package-with-__init__py">Importing a package with <code>__init__.py</code></a></li>
+<li><a href="#creating-a-distribution-package">Creating a Distribution Package</a></li>
+</ul></li>
+<li><a href="#objects">Objects</a>
+<ul>
+<li><a href="#class-vs-instance-attributes">Class vs Instance Attributes</a></li>
+<li><a href="#inheritance">Inheritance</a>
+<ul>
+<li><a href="#what-does-self-do">What does <code>self</code> do?</a></li>
+<li><a href="#what-does-__init__-do">What does <code>__init__</code> do?</a></li>
+<li><a href="#keeping-code-dry-with-super">Keeping code DRY with <code>super</code></a></li>
+<li><a href="#abstract-base-classes">Abstract Base Classes</a></li>
+<li><a href="#subclass-attribute-vs-__init__-method">Subclass attribute vs <strong>init</strong> method</a></li>
+</ul></li>
+<li><a href="#limits-of-oop-principles-in-python">Limits of OOP principles in Python</a></li>
+</ul></li>
+<li><a href="#iterators-and-generators">Iterators and Generators</a></li>
+</ul>
+<!-- tocstop -->
+<h2 id="notes-on-testing-with-pytest">Notes on Testing with pytest</h2>
+<h3 id="showing-logs-like-print-and-logging-in-your-test">Showing logs like <code>print</code> and <code>logging</code> in your test</h3>
+<p>pytest captures stderr by default. To show logs, you need to pass <code>-o log_cli=true</code> like below.<br />
+Source: <a href="https://stackoverflow.com/a/51633600/12207563">stackoverflow</a></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">PYTHONPATH</span><span class="op">=</span>. <span class="ex">pytest</span> <span class="at">-o</span> log_cli=true test/files/test_files.py::test_passwd_to_dict</span></code></pre></div>
+<h3 id="using-list-comprehensions-with-assert">Using List Comprehensions with <code>assert</code></h3>
+<p>Using list comprehensions in assertions reference: https://edricteo.com/list-comprehension-addiction/</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.mark.parametrize</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;inputs, expected&quot;</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        (</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                (<span class="st">&quot;Chocolate&quot;</span>, <span class="st">&quot;Vanilla&quot;</span>, <span class="st">&quot;Strawberry&quot;</span>),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                [<span class="st">&quot;Chocolate&quot;</span>, <span class="st">&quot;Vanilla&quot;</span>, <span class="st">&quot;Strawberry&quot;</span>],</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_create_scoops_with_different_iterables(inputs, expected):</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">all</span>([value <span class="kw">in</span> expected <span class="cf">for</span> value <span class="kw">in</span> create_values(inputs)])</span></code></pre></div>
+<h3 id="mocks">Mocks</h3>
+<h4 id="mocking-opening-a-file">Mocking opening a file</h4>
+<p>Example of how to mock a file.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_final_line():</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    mock_open <span class="op">=</span> mock.mock_open(read_data<span class="op">=</span><span class="st">&#39;a</span><span class="ch">\n</span><span class="st">ab</span><span class="ch">\n</span><span class="st">abc</span><span class="ch">\n</span><span class="st">abcd&#39;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> mock.patch(<span class="st">&quot;builtins.open&quot;</span>, mock_open) <span class="im">as</span> m:</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> final_line(<span class="st">&#39;file_path&#39;</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> result <span class="op">==</span> <span class="st">&#39;abcd&#39;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># or </span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_multi_columns_multi_rows():</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    fake_tsv <span class="op">=</span> StringIO(<span class="st">&#39;1</span><span class="ch">\n</span><span class="st">&#39;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;1</span><span class="ch">\t</span><span class="st">2</span><span class="ch">\n</span><span class="st">&#39;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;1</span><span class="ch">\t</span><span class="st">2</span><span class="ch">\t</span><span class="st">3</span><span class="ch">\n</span><span class="st">&#39;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;1</span><span class="ch">\t</span><span class="st">2</span><span class="ch">\t</span><span class="st">3</span><span class="ch">\t</span><span class="st">4&#39;</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> mock.patch(<span class="st">&quot;builtins.open&quot;</span>, return_value<span class="op">=</span>fake_tsv):</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> sum_multi_columns(<span class="st">&#39;file_path&#39;</span>) <span class="op">==</span> <span class="dv">32</span></span></code></pre></div>
+<p>You can also use StringIO</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_passwd_to_dict():</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    fake_passwd <span class="op">=</span> StringIO(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;###############</span><span class="ch">\n</span><span class="st">&#39;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;# User Database</span><span class="ch">\n</span><span class="st">&#39;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;###############</span><span class="ch">\n</span><span class="st">&#39;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;               </span><span class="ch">\n</span><span class="st">&#39;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;nobody:*:-2:-2:Unprivileged User:/var/empty:/usr/bin/false</span><span class="ch">\n</span><span class="st">&#39;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;root:*:0:0:System Administrator:/var/root:/bin/sh</span><span class="ch">\n</span><span class="st">&#39;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;funnyhaha.org</span><span class="ch">\n</span><span class="st">&#39;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;daemon:*:1:1:System Services:/var/root:/usr/bin/false</span><span class="ch">\n</span><span class="st">&#39;</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> mock.patch(<span class="st">&quot;builtins.open&quot;</span>, return_value<span class="op">=</span>fake_passwd):</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> passwd_to_dict(<span class="st">&#39;file_path&#39;</span>) <span class="op">==</span> {<span class="st">&#39;nobody&#39;</span>: <span class="st">&#39;-2&#39;</span>, <span class="st">&#39;root&#39;</span>: <span class="st">&#39;0&#39;</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                                               <span class="st">&#39;daemon&#39;</span>: <span class="st">&#39;1&#39;</span>}</span></code></pre></div>
+<h3 id="mock-writing-to-a-file">Mock Writing to a File</h3>
+<p>Reference: https://stackoverflow.com/a/55657594/12207563</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mock</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> LogFIle</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_logfile():</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    open_mock <span class="op">=</span> mock.mock_open()</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> mock.patch(<span class="st">&quot;builtins.open&quot;</span>, open_mock, create<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        lf <span class="op">=</span> LogFile(<span class="st">&#39;dummy.log&#39;</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        lf.write(<span class="st">&#39;foobarbaz&#39;</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    open_mock.assert_called_with(<span class="st">&quot;dummy.log&quot;</span>, <span class="st">&quot;w&quot;</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    open_mock.return_value.write.assert_called_once_with(<span class="st">&quot;foobarbaz&quot;</span>)</span></code></pre></div>
+<h2 id="lists-and-tuples">Lists and Tuples</h2>
+<ul>
+<li>Lists are mutable and tuples are immutable, but the real difference between them is how they’re used: lists are for sequences of the same type, and tuples are for records that contain different types.</li>
+<li>You can use the built-in sorted function to sort either lists or tuples. You’ll get a list back from your call to sorted.</li>
+<li>You can modify the sort order by passing a function to the key parameter. This function will be invoked once for each element in the sequence, and the output from the function will be used in ordering the elements.</li>
+<li>If you want to count the number of items contained in a sequence, try using the Counter class from the collections module. It not only lets us count things quickly and easily, and provides us with a most_common method, but also inherits from dict, giving us all of the dict functionality we know and love.</li>
+</ul>
+<h2 id="dicts-and-sets">Dicts and Sets</h2>
+<ul>
+<li>The keys must be hashable, such as a number or string.</li>
+<li>The values can be anything at all, including another dict.</li>
+<li>The keys are unique.</li>
+<li>You can iterate over the keys in a for loop or comprehension.</li>
+</ul>
+<h2 id="files">Files</h2>
+<ul>
+<li>You will typically open files for either reading or writing.</li>
+<li>You can (and should) iterate over files one line at a time, rather than reading the whole thing into memory at once.</li>
+<li>Using <code>with</code> when opening a file for writing ensures that the file will be flushed and closed.</li>
+<li>The <code>csv</code> module makes it easy to read from and write to CSV files.</li>
+<li>The <code>json</code> module’s <code>dump</code> and <code>load</code> functions allow us to move between Python data structures and JSON-formatted strings.</li>
+</ul>
+<h2 id="functions">Functions</h2>
+<blockquote>
+<p>Working with inner functions and closures can be quite surprising and confusing at first. That’s particularly true because our instinct is to believe that when a function returns, its local variables and state all go away. Indeed, that’s normally true–but remember that in Python, an object isn’t released and garbage-collected if there’s at least one reference to it. And if the inner function is still referring to the stack frame in which it was defined, then the outer function will stick around as long as the inner function exists.</p>
+</blockquote>
+<h2 id="comprehensions">Comprehensions</h2>
+<h3 id="list-comprehension-vs-for-loop">List Comprehension vs For loop</h3>
+<p>On using comprehensions versus <code>for</code> loops: &gt; When you want to transform an iterable into a list, you should use a comprehension. But if you just want to execute something for each element of an iterable, then a traditional for loop is better.</p>
+<p>tl;dr - Use comprehension for <em>tranforming</em> values: &gt; taking values in a list, string, dict, or other iterable and producing a new list based on it–are common in programming. You might need to transform filenames into file objects, or words into their lengths, or usernames into user IDs. In all of these cases, a comprehension is the most Pythonic solution.</p>
+<p>Consider what your goal is, and whether you’re better served with a comprehension or a for loop; for example</p>
+<ul>
+<li>Given a string, you want a list of the <code>ord</code> values for each character. This should be a list comprehension, because you’re creating a list based on a string, which is iterable.</li>
+<li>You have a list of dicts, in which each dict contains your friends’ first and last names, and you want to insert this data into a database. In this case, you’ll use a regular <code>for</code> loop, because you’re interested in the side effects, not the return value.</li>
+</ul>
+<h3 id="going-from-list-comprehensions-to-generator-expressions">Going from list comprehensions to generator expressions:</h3>
+<p>Generator expressions looks like a list comprehension, but uses parentheses rather than square brackets. We can use a generator expression in a call to <code>str.join</code>, just as we could put in a list comprehension, saving memory in the process.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List Comprehension</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;, &quot;</span>.join([<span class="bu">str</span>(num <span class="op">+</span> <span class="dv">1</span>) <span class="cf">for</span> num <span class="kw">in</span> nums])</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove square brackets, becomes generator expression</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;, &quot;</span>.join(<span class="bu">str</span>(num <span class="op">+</span> <span class="dv">1</span>) <span class="cf">for</span> num <span class="kw">in</span> nums)</span></code></pre></div>
+<p><code>map</code> versus comprehensions <code>map</code> pros: <code>map</code> can take multiple iterables in its input and then apply functions that will work with each of them</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> operator</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>letters <span class="op">=</span> <span class="st">&#39;abcd&#39;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">map</span>(operator.mul, letters, numbers)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39; &#39;</span>.join(x))</span></code></pre></div>
+<p>This can be done with a comprehension, but a bit more complex as we need to use <code>zip</code> to iterate through two iterables.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> operator</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>letters <span class="op">=</span> <span class="st">&#39;abcd&#39;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39; &#39;</span>.join(operator.mul(one_letter, one_number)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>               <span class="cf">for</span> one_letter, one_number <span class="kw">in</span> <span class="bu">zip</span>(letters, numbers)))</span></code></pre></div>
+<h2 id="modules">Modules</h2>
+<h3 id="whats-the-difference-between-a-module-and-a-package">What’s the difference between a module and a package?</h3>
+<ul>
+<li>A <strong>module</strong> is a single file, with a “.py” suffix. We can load the module using import</li>
+<li>A <strong>package</strong> is a directory containing one or more Python modules. For example, assume you have the modules <code>first.py</code>, <code>second.py</code>, and <code>third.py</code>, and want to keep them together. You can put them all into a directory, <code>mypackage</code>.
+<ul>
+<li>Assuming that directory is in sys.path, you can then call:</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mypackage <span class="im">import</span> first</span></code></pre></div>
+<ul>
+<li>Python will go into the mypackage directory, look for first.py, and import it.</li>
+</ul></li>
+</ul>
+<h3 id="importing-a-package-with-__init__.py">Importing a package with <code>__init__.py</code></h3>
+<p>If you import a package wholesale like:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mypackage</span></code></pre></div>
+<p><strong>If</strong> the package directory contains <code>__init__.py</code>, importing <code>mypackage</code> effectively means that <code>__init__.py</code> is loaded, and thus executed. You can, inside of that file, import one or more of the modules within the package.</p>
+<h3 id="creating-a-distribution-package">Creating a Distribution Package</h3>
+<p>A <strong>distribution package</strong> is a wrapper around a Python package containing information about the author, compatible versions, and licensing, as well as automated tests, dependencies, and installation instructions.</p>
+<ul>
+<li>If your distribution package is called <code>mypackage</code>, you’ll have a directory called <code>mypackage</code>.</li>
+<li>Inside that directory, among other things, will be a subdirectory called <code>mypackage</code>, which is where the Python package goes.</li>
+</ul>
+<p>Creating a distribution package means creating a file called <code>setup.py</code>. Here is a <a href="https://packaging.python.org/tutorials/packaging-projects/">tutorial</a> from Python docs on how to create a package.</p>
+<h2 id="objects">Objects</h2>
+<h3 id="class-vs-instance-attributes">Class vs Instance Attributes</h3>
+<p>A Python class attribute is an attribute of the class, rather than an attribute of an instance of a class. Python doesn’t have constants, but we can simulate them with class attributes.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyClass(<span class="bu">object</span>):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    class_var <span class="op">=</span> <span class="dv">1</span>  <span class="co"># class attribute</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, i_var):</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.i_var <span class="op">=</span> i_var  <span class="co"># instance attribute</span></span></code></pre></div>
+<p>Note that all instances of the class have access to <code>class_var</code>, and that it can also be accessed as a property of the class itself:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>foo <span class="op">=</span> MyClass(<span class="dv">2</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>bar <span class="op">=</span> MyClass(<span class="dv">3</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>foo.class_var, foo.i_var</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">## 1, 2</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>bar.class_var, bar.i_var</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">## 1, 3</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>MyClass.class_var  <span class="co">## &lt;— This is key</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">## 1</span></span></code></pre></div>
+<p>Reference: <a href="https://www.toptal.com/python/python-class-attributes-an-overly-thorough-guide">Python Class Attributes: An Overly Thorough Guide</a></p>
+<h3 id="inheritance">Inheritance</h3>
+<p>Example</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Person():</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> greet(<span class="va">self</span>):</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f&#39;Hello, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss">&#39;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Employee(Person)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, id_number):</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.id_number <span class="op">=</span> id_number</span></code></pre></div>
+<h4 id="what-does-self-do">What does <code>self</code> do?</h4>
+<ul>
+<li><code>self</code> is referring to the current object.</li>
+<li>The first parameter in every class method is <code>self</code></li>
+<li>Any attributes we add to self will stick around after the method returns. And so it’s natural, and thus preferred, to assign a bunch of attributes to self in <code>__init__</code>.</li>
+</ul>
+<h4 id="what-does-__init__-do">What does <code>__init__</code> do?</h4>
+<p><code>__init__</code> simply adds new attributes to the object.</p>
+<ul>
+<li>Different from <code>__new__</code> which is a constructor, which actually creates a new object. Before it creates a new instance, it looks for an invokes the <code>__init__</code> method.</li>
+<li>Unlike languages such as C# and Java, we don’t just declare attributes in Python; we must actually create and assign to them, at runtime, when the new instance is created.</li>
+</ul>
+<h4 id="keeping-code-dry-with-super">Keeping code DRY with <code>super</code></h4>
+<blockquote>
+<p>There’s one weird thing about my implementation of <code>Employee</code>, namely that I set self.name in <code>__init__</code>. If you’re coming from a language like Java, you might be wondering why I have to set it at all, since <code>Person.__init__</code> already sets it. But that’s just the thing: in Python, <code>__init__</code>really needs to execute for it to set the attribute. If we were to remove the setting of <code>self.name</code> from <code>Employee.__init__</code>, the attribute would never be set. By the ICPO rule, only one method would ever be called, and it would be the one that’s closest to the instance. Since <code>Employee.__init__</code> is closer to the instance than <code>Person.__init__</code>, the latter is never called.</p>
+</blockquote>
+<p>Solution: <code>super</code> built-in allows us to invoke a method on a parent object without explicitly naming that parent.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Employee(Person)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, id_number):</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(name)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.id_number <span class="op">=</span> id_number</span></code></pre></div>
+<h4 id="abstract-base-classes">Abstract Base Classes</h4>
+<p><em>Abstract base classes</em> are classes that are never instantiated on its own, but various subclasses will inherit.</p>
+<ul>
+<li>In python, you don’t need to explicitly declare a class to be abstract.</li>
+<li>However, you <em>can</em> import <code>ABCMeta</code> from the <a href="https://docs.python.org/3/library/abc.html"><code>abc</code> module</a>.</li>
+</ul>
+<h4 id="subclass-attribute-vs-init-method">Subclass attribute vs <strong>init</strong> method</h4>
+<ul>
+<li><p>If there is a default attribute for a subclass that is not going to change, consider just setting it as a subclass attribute rather than setting it as an attribute initialized in the <code>__init__</code> method in the parent class.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parent class</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Animal:</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, color):</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Turn the current class object into a string</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.species: <span class="bu">str</span> <span class="op">=</span> <span class="va">self</span>.__class__.<span class="va">__name__</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.color: <span class="bu">str</span> <span class="op">=</span> color</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f&quot;</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>color<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>species<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>number_of_legs<span class="sc">}</span><span class="ss"> legs&quot;</span>.lower()</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Child class - just sets number_of_legs as class attribute rather than setting it as __init__ attribute in parent.</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Wolf(Animal):</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    number_of_legs <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, color):</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(color)</span></code></pre></div></li>
+</ul>
+<h3 id="limits-of-oop-principles-in-python">Limits of OOP principles in Python</h3>
+<blockquote>
+<p>Whether this is right or wrong, (directly accessing data in other objects) is fairly common in the Python world. Because all data is public (i.e., there’s no private or protected), it’s considered a good and reasonable thing to just scoop the data out of objects. That said, this also means that whoever writes a class has a responsibility to document it, and to keep the API alive–or to document elements that may be deprecated or removed in the future.</p>
+</blockquote>
+<blockquote>
+<p>(Unlike Python) In many languages, object-oriented programming is forced on you, such that you’re constantly trying to fit your programming into its syntax and structure.</p>
+</blockquote>
+<hr />
+<h2 id="iterators-and-generators">Iterators and Generators</h2>
+<p>There are at least three different ways to create an iterator:</p>
+<ol type="1">
+<li>Add the appropriate methods to a class</li>
+<li>Write a generator function</li>
+<li>Use a generator expression</li>
+</ol>
+<blockquote>
+<p>The iterator protocol is both common and useful in Python. By now, it’s a bit of a chicken-and-egg situation–is it worth adding the iterator protocol to your objects because so many programs expect objects to support it? Or do programs use the iterator protocol because so many programs support it? The answer might not be clear, but the implications are. If you have a collection of data, or something that can be interpreted as a collection, then it’s worth adding the appropriate methods to your class. And if you’re not creating a new class, you can still take advantage of iterables with generator functions and expressions.</p>
+</blockquote>
+<p>The book covers how to:</p>
+<ul>
+<li>Add the iterator protocol to a class you’ve written</li>
+<li>Add the iterator protocol to a class via a helper iterator class</li>
+<li>Write generator functions that filter, modify, and add to iterators that you would otherwise have created or used</li>
+<li>Use generator expressions for greater efficiency than list comprehensions</li>
+</ul>
+<h3 id="iterator-protocol">Iterator protocol</h3>
+<ol type="1">
+<li><code>__iter__</code> returns an iterator</li>
+<li><code>__next__</code> must be defined on the iterator</li>
+<li><code>StopIteration</code> exception which the iterator raises to signal the end of the iterations</li>
+</ol>
+<ul>
+<li>Strings, lists, and dicts are iterable. Integers aren’t.</li>
+<li>Other objects (e.g. files) are also iterable.</li>
+<li>You can make your own classes iterable by adding the iterator protocol on your object.</li>
+</ul>
+<h3 id="how-a-for-loop-actually-works">How a <code>for</code> loop actually works</h3>
+<ol type="1">
+<li>Verifies object is iterable using the <code>iter</code> built-in. <code>iter</code> invokes the <code>__iter__</code> method on the target object.</li>
+<li>If the object is iterable, the <code>for</code> loop invokes the <code>next</code> built-in on the iterator, which invokes <code>__next__</code> on the iterator.</li>
+<li>If <code>__next__</code> raises a <code>StopIteration</code> exception, the loop exits.</li>
+</ol>
+<h3 id="common-qs">Common Qs</h3>
+<ol type="1">
+<li>“Why isn’t there an index?”</li>
+</ol>
+<ul>
+<li>C-like languages require a numeric index to keep track of the location.</li>
+<li>In Python, the object itself is responsible for producing the next item. It doesn’t know the index of the loop but it does know when it has reached the end.</li>
+</ul>
+<ol start="2" type="1">
+<li>“Why do different object behave differently in for loops?”</li>
+</ol>
+<ul>
+<li>Strings return characters, dicts return keys, files return lines. How come?</li>
+<li>Short answer is that each object can return whatever it wants! Those above are its defaults.</li>
+</ul>
+<h3 id="how-to-make-a-class-iterable">How to make a class iterable</h3>
+<ol type="1">
+<li>Define an <code>__iter__</code> method that takes only <code>self</code> as an arg, and returns <code>self</code>.</li>
+</ol>
+<ul>
+<li>ie. Python: “Are you an iterable”, Class: “Yes, and I’m my own iterator”</li>
+</ul>
+<ol start="2" type="1">
+<li>Define a <code>__next__</code> method that takes only <code>self</code> as an arg. It should either return a value, or raise <code>StopIteration</code> when it runs out of values.</li>
+</ol>
+<h4 id="example-of-a-class-with-its-own-iterator">Example of a class with its own iterator</h4>
+<div class="sourceCode" id="cb16"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LoudIterator():</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, data):</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\t</span><span class="st">Now in __init__&#39;</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.data <span class="op">=</span> data</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.index <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__iter__</span>(<span class="va">self</span>):</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\t</span><span class="st">Now in __iter__&#39;</span>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__next__</span>(<span class="va">self</span>):</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\t</span><span class="st">Now in __next__&#39;</span>)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.index <span class="op">&gt;=</span> <span class="bu">len</span>(<span class="va">self</span>.data):</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f&#39;</span><span class="ch">\t</span><span class="ss">self.index (</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>index<span class="sc">}</span><span class="ss">) is too big; exiting&#39;</span>)</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">StopIteration</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>        value <span class="op">=</span> <span class="va">self</span>.data[<span class="va">self</span>.index]</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.index <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\t</span><span class="st">Got value </span><span class="sc">{value}</span><span class="st">, incremented index to </span><span class="sc">{self.index}</span><span class="st">&#39;</span>)</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> value</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> one_item <span class="kw">in</span> LoudIterator(<span class="st">&#39;abc&#39;</span>):</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(one_item)</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="co"># prints</span></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a><span class="co">Now in __init__</span></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a><span class="co">       Now in __iter__</span></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="co">       Now in __next__</span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="co">       Got value a, incremented index to 1</span></span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a><span class="co">a</span></span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a><span class="co">       Now in __next__</span></span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a><span class="co">       Got value b, incremented index to 2</span></span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a><span class="co">b</span></span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a><span class="co">       Now in __next__</span></span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a><span class="co">       Got value c, incremented index to 3</span></span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a><span class="co">c</span></span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a><span class="co">       Now in __next__</span></span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a><span class="co">       self.index (3) is too big; exiting</span></span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;</span></span></code></pre></div>
+<h3 id="generator-functions">Generator Functions</h3>
+<p>Generators look like functions, but when executed acts like an iterator.</p>
+<p>The example below, when run, doesn’t execute but rather returns a generator object.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> foo():</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">yield</span> <span class="dv">1</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">yield</span> <span class="dv">2</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">yield</span> <span class="dv">3</span></span></code></pre></div>
+<p>This can be saved as a variable and put in a <code>for</code> loop. With each iteration, the function executes through the next <code>yield</code> statement, returns the value it got from <code>yield</code>, then waits for the next iteration. When the generator function exits, it automatically raises <code>StopIteration</code> to close the loop.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> foo()</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> g:</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div>
+<h4 id="iterable-vs-iterator">Iterable vs Iterator</h4>
+<ul>
+<li>An <strong>iterable object</strong> can be put inside a for loop / list comprehension. Requires <code>__iter__</code> method, which returns an iterator.</li>
+<li>An <strong>iterator</strong> is an object that implements the <code>__next__</code> method.</li>
+</ul>
+<h3 id="iterator-term-chart">Iterator term chart</h3>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 35%" />
+<col style="width: 37%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>What is it?</th>
+<th>Example</th>
+<th>To learn more</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>iter</td>
+<td>A built-in function that returns an object’s iterator</td>
+<td>iter(‘abcd’)</td>
+<td><a href="http://mng.bz/jgja">http://mng.bz/jgja</a></td>
+</tr>
+<tr class="even">
+<td>next</td>
+<td>A built-in function that requests the next object from an iterator</td>
+<td>next(i)</td>
+<td><a href="http://mng.bz/WPBg">http://mng.bz/WPBg</a></td>
+</tr>
+<tr class="odd">
+<td>StopIteration</td>
+<td>An exception raised to indicate the end of a loop</td>
+<td>raise StopIteration</td>
+<td><a href="http://mng.bz/8p0K">http://mng.bz/8p0K</a></td>
+</tr>
+<tr class="even">
+<td>enumerate</td>
+<td>Helps us to number elements of iterables</td>
+<td>for i, c in enumerate(‘ab’):<br>print(f’{i}: {c}’)</td>
+<td><a href="http://mng.bz/qM1K">http://mng.bz/qM1K</a></td>
+</tr>
+<tr class="odd">
+<td>Iterables</td>
+<td>A category of data in Python</td>
+<td>Iterables can be put in for loops or passed to many functions.</td>
+<td><a href="http://mng.bz/EdDq">http://mng.bz/EdDq</a></td>
+</tr>
+<tr class="even">
+<td>itertools</td>
+<td>A module with many classes for implementing iterables</td>
+<td>import itertools</td>
+<td><a href="http://mng.bz/NK4E">http://mng.bz/NK4E</a></td>
+</tr>
+<tr class="odd">
+<td>range</td>
+<td>Returns an iterable sequence of integers</td>
+<td># every 3rd integer, from 10<br># to (not including) 50<br>range(10, 50, 3)</td>
+<td><a href="http://mng.bz/B2DJ">http://mng.bz/B2DJ</a></td>
+</tr>
+<tr class="even">
+<td>os.listdir</td>
+<td>Returns a list of files in a directory</td>
+<td>os.listdir(‘/etc/’)</td>
+<td><a href="http://mng.bz/YreB">http://mng.bz/YreB</a></td>
+</tr>
+<tr class="odd">
+<td>os.walk</td>
+<td>Iterates over the files in a directory</td>
+<td>os.walk(‘/etc/’)</td>
+<td><a href="http://mng.bz/D2Ky">http://mng.bz/D2Ky</a></td>
+</tr>
+<tr class="even">
+<td>yield</td>
+<td>Returns control to the loop temporarily, optionally returning a value</td>
+<td>yield 5</td>
+<td><a href="http://mng.bz/lG9j">http://mng.bz/lG9j</a></td>
+</tr>
+<tr class="odd">
+<td>os.path.join</td>
+<td>Returns a string based on the path components</td>
+<td>os.path.join(‘etc’, ‘passwd’)</td>
+<td><a href="http://mng.bz/oPPM">http://mng.bz/oPPM</a></td>
+</tr>
+<tr class="even">
+<td>time.perf_ counter</td>
+<td>Returns the number of elapsed seconds (as a float) since the program was started</td>
+<td>time.perf_counter()</td>
+<td><a href="http://mng.bz/B21v">http://mng.bz/B21v</a></td>
+</tr>
+<tr class="odd">
+<td>zip</td>
+<td>Takes n iterables as arguments and returns an iterator of tuples of length n</td>
+<td># returns [(‘a’, 10),<br># (‘b’, 20), (‘c’, 30)]<br>zip(‘abc’,<br>[10, 20, 30])</td>
+<td><a href="http://mng.bz/Jyzv">http://mng.bz/Jyzv</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="iterator-gotcha-__iter__-in-multi-class-cases">Iterator gotcha: <code>__iter__</code> in multi-class cases</h3>
+<p>Problem: Below will throw nothing for B, because the same iterator object is being used.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> MyEnumerate(<span class="st">&#39;abc&#39;</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;** A **&#39;</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, one_item <span class="kw">in</span> e:</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&#39;</span><span class="sc">{</span>index<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>one_item<span class="sc">}</span><span class="ss">&#39;</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;** B **&#39;</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, one_item <span class="kw">in</span> e:</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&#39;</span><span class="sc">{</span>index<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>one_item<span class="sc">}</span><span class="ss">&#39;</span>)</span></code></pre></div>
+<p>Solution: Implement <code>__iter__</code> on the main class, but its job is to return a new instance of the helper class.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in MyEnumerate</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="fu">__iter__</span>(<span class="va">self</span>):</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> MyEnumerateIterator(<span class="va">self</span>.data)</span></code></pre></div>
+<p>Then we define <code>MyEnumerateIterator</code>, a new and separate class, whose <code>__init__</code> looks much like the one we already defined for MyIterator and whose <code>__next__</code> is taken directly from <code>MyIterator</code>.</p>
+<p>Advantages to this design:</p>
+<ol type="1">
+<li>We can put our iterable in as many for loops as we want, without having to worry that it’ll lose the iterations somehow</li>
+<li>More organized, as we’re keeping iteration logic (ie. <code>__next__</code>) in a separate class.</li>
+</ol>
+<h3 id="stopping-generator-functions">Stopping Generator Functions</h3>
+<ul>
+<li>In a generator function, <code>yield</code> indicates that you want to keep the generator going and return a value for the current iteration, while <code>return</code> indicates that you want to exit completely.</li>
+<li>In generator functions, don’t explicitly raise <code>StopIteration</code>. That happens automatically when the generator reaches the end of the function.</li>
+<li>If you want to exit from the function prematurely, use a <code>return</code> statement.</li>
+<li>Using a <code>return</code> with a value (e.g., return 5) from a generator function won’t throw an error, but the value will be ignored.</li>
+</ul>
+<h3 id="itertools"><code>itertools</code></h3>
+<p>Python comes with the <code>itertools</code> module, which makes it easy to create many types of iterators.</p>
+<p>The <code>chain</code> tool allows you to chain together various types of iterables.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> chain</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>([i <span class="cf">for</span> i <span class="kw">in</span> chain(<span class="st">&#39;abc&#39;</span>, [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], {<span class="st">&#39;a&#39;</span>: <span class="dv">1</span>, <span class="st">&#39;b&#39;</span>: <span class="dv">2</span>})])</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, 1, 2, 3, &#39;a&#39;, &#39;b&#39;]</span></span></code></pre></div>
+</section>
+</body>
+</html>
