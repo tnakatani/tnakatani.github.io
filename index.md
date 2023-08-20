@@ -17,7 +17,8 @@
 - CS6750 - Human Computer Interface (HCI)
     - [Lecture Notes](https://tnakatani.github.io/omscs/cs6750/cs6750_notes.html)
     - [Readings Notes](https://tnakatani.github.io/omscs/cs6750/readings.html)
-
+- CS7643 - Deep Learning
+    - [Module 1 notes](https://tnakatani.github.io/omscs/cs7643/module_1.html)
 
 ## Notes from Books / MOOCs
 
