@@ -19,6 +19,7 @@
     - [Readings Notes](https://tnakatani.github.io/omscs/cs6750/readings.html)
 - CS7643 - Deep Learning
     - [Module 1 notes](https://tnakatani.github.io/omscs/cs7643/module_1.html)
+    - [Module 2 notes](https://tnakatani.github.io/omscs/cs7643/module_2.html)
     - [Deep Learning (Goodfellow) notes](https://tnakatani.github.io/omscs/cs7643/dl_book_notes.html)
 
 ## Notes from Books / MOOCs
