@@ -1,27 +1,28 @@
-[Github](https://github.com/tnakatani) 
+Data Scientist @ Amazon | [Github](https://github.com/tnakatani)
 
 ## Publications
 - [Improve machine translation in e-commerce multilingual search with contextual signal from search sessions (SIGIR 2023 Workshop on eCommerce)](https://www.amazon.science/publications/improve-machine-translation-in-e-commerce-multilingual-search-with-contextual-signal-from-search-sessions)
 - [Comparing data augmentation and annotation standardization to improve end-to-end spoken language understanding models (NeurIPS 2021 Workshop on Data-Centric AI)](https://www.amazon.science/publications/comparing-data-augmentation-and-annotation-standardization-to-improve-end-to-end-spoken-language-understanding-models)
 
-## Georgia Tech OMSCS Notes
+## Georgia Tech OMSCS - Course Notes
 
-- [CS7646 - Machine Learning for Trading](https://tnakatani.github.io/omscs/cs7646/cs7646_notes.html)
-- [CS7637 - Knowledge-based AI](https://tnakatani.github.io/omscs/cs7637/cs7637_notes.html)
-- [CS6603 - AI, Ethics and Society](https://tnakatani.github.io/omscs/cs6603/cs6603_notes.html)
-- [ISYE6501 - Introduction to Analytics Modeling](https://tnakatani.github.io/omscs/isye6501/isye6501_notes.html)
-- CS7641 - Machine Learning
+1. [CS7646 - Machine Learning for Trading](https://tnakatani.github.io/omscs/cs7646/cs7646_notes.html)
+2. [CS7637 - Knowledge-based AI](https://tnakatani.github.io/omscs/cs7637/cs7637_notes.html)
+3. [CS6603 - AI, Ethics and Society](https://tnakatani.github.io/omscs/cs6603/cs6603_notes.html)
+4. [ISYE6501 - Introduction to Analytics Modeling](https://tnakatani.github.io/omscs/isye6501/isye6501_notes.html)
+5. CS7641 - Machine Learning
     - [Supervised Learning notes](https://tnakatani.github.io/omscs/cs7641/sl_notes.html)
     - [Unsupervised Learning notes](https://tnakatani.github.io/omscs/cs7641/ul_notes.html)
     - [Reinforcement Learning notes](https://tnakatani.github.io/omscs/cs7641/rl_notes.html)
-- CS6750 - Human Computer Interface (HCI)
+6. CS6750 - Human Computer Interaction (HCI)
     - [Lecture Notes](https://tnakatani.github.io/omscs/cs6750/cs6750_notes.html)
     - [Readings Notes](https://tnakatani.github.io/omscs/cs6750/readings.html)
-- CS7643 - Deep Learning
+7. CS7643 - Deep Learning
     - [Module 1 notes](https://tnakatani.github.io/omscs/cs7643/module_1.html)
     - [Module 2 notes](https://tnakatani.github.io/omscs/cs7643/module_2.html)
     - [Module 3 notes](https://tnakatani.github.io/omscs/cs7643/module_3.html)
     - [Deep Learning (Goodfellow) notes](https://tnakatani.github.io/omscs/cs7643/dl_book_notes.html)
+8. CS7650 - Natural Language Processing
 
 ## Notes from Books / MOOCs
 
