@@ -1,4 +1,4 @@
-Data Scientist @ Amazon | [Github](https://github.com/tnakatani)
+[Data Scientist @ Amazon](https://www.amazon.science/author/taichi-nakatani) | [Github](https://github.com/tnakatani) | [Google Scholar](https://scholar.google.com/citations?user=GZHv6zIAAAAJ)
 
 ## Publications
 - [Don’t Just Translate, Summarize Too: Cross-lingual Product Title Generation in E-commerce (LREC-COLING 2024 Workshop on e-Commerce and NLP)](https://aclanthology.org/2024.ecnlp-1.6/)
