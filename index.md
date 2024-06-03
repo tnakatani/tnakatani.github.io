@@ -1,6 +1,7 @@
 Data Scientist @ Amazon | [Github](https://github.com/tnakatani)
 
 ## Publications
+- [Don’t Just Translate, Summarize Too: Cross-lingual Product Title Generation in E-commerce (LREC-COLING 2024 Workshop on e-Commerce and NLP)](https://aclanthology.org/2024.ecnlp-1.6/)
 - [Improve machine translation in e-commerce multilingual search with contextual signal from search sessions (SIGIR 2023 Workshop on eCommerce)](https://www.amazon.science/publications/improve-machine-translation-in-e-commerce-multilingual-search-with-contextual-signal-from-search-sessions)
 - [Comparing data augmentation and annotation standardization to improve end-to-end spoken language understanding models (NeurIPS 2021 Workshop on Data-Centric AI)](https://www.amazon.science/publications/comparing-data-augmentation-and-annotation-standardization-to-improve-end-to-end-spoken-language-understanding-models)
 
