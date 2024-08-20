@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>NLP Models</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../pandoc.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body style="max-width: 80rem;">
+<header id="title-block-header">
+<h1 class="title">NLP Models</h1>
+</header>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Architecture</th>
+<th>Purpose</th>
+<th>Multilinguality</th>
+<th>Notable Features</th>
+<th>Parameter Size</th>
+<th>Paper</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://arxiv.org/abs/2109.01652">FLAN</a></td>
+<td>Transformer Encoder-Decoder</td>
+<td>Instruction-following, few-shot learning</td>
+<td>Monolingual (English)</td>
+<td>Few-shot learning, multi-task mixture-of-experts, retrieval
+augmentation</td>
+<td>137B</td>
+<td><a href="https://arxiv.org/abs/2109.01652">Wei et al., 2022</a></td>
+</tr>
+<tr class="even">
+<td><a href="https://arxiv.org/abs/1910.10683">T5</a></td>
+<td>Transformer Encoder-Decoder</td>
+<td>Sequence-to-sequence tasks (translation, summarization)</td>
+<td>Monolingual (English)</td>
+<td>Text-to-text framework, unified model for various NLP tasks</td>
+<td>60M (Small), 220M (Base), 770M (Large), 3B (3B), 11B (11B)</td>
+<td><a href="https://arxiv.org/abs/1910.10683">Raffel et al.,
+2020</a></td>
+</tr>
+<tr class="odd">
+<td><a href="https://arxiv.org/abs/1910.13461">BART</a></td>
+<td>Transformer Encoder-Decoder</td>
+<td>Sequence-to-sequence tasks (translation, summarization)</td>
+<td>Monolingual (English)</td>
+<td>Combines bidirectional encoder and auto-regressive decoder</td>
+<td>139M (Base), 680M (Large)</td>
+<td><a href="https://arxiv.org/abs/1910.13461">Lewis et al.,
+2020</a></td>
+</tr>
+<tr class="even">
+<td><a href="https://arxiv.org/abs/2008.00401">mBART</a></td>
+<td>Transformer Encoder-Decoder</td>
+<td>Machine translation, cross-lingual tasks</td>
+<td>Multilingual (25+ languages)</td>
+<td>Multilingual BART, cross-lingual transfer for generation tasks</td>
+<td>610M (Large)</td>
+<td><a href="https://arxiv.org/abs/2008.00401">Liu et al., 2020</a></td>
+</tr>
+<tr class="odd">
+<td><a href="https://arxiv.org/abs/1810.04805">BERT</a></td>
+<td>Transformer Encoder</td>
+<td>Transfer learning, NLP tasks (classification, QA, NER)</td>
+<td>Monolingual (English)</td>
+<td>Bidirectional encoder, masked language modeling pretraining</td>
+<td>110M (Base), 340M (Large)</td>
+<td><a href="https://arxiv.org/abs/1810.04805">Devlin et al.,
+2019</a></td>
+</tr>
+<tr class="even">
+<td><a href="https://arxiv.org/abs/1907.11692">RoBERTa</a></td>
+<td>Transformer Encoder</td>
+<td>Transfer learning, NLP tasks (classification, QA, NER)</td>
+<td>Monolingual (English)</td>
+<td>Improved version of BERT, better pretraining</td>
+<td>125M (Base), 355M (Large)</td>
+<td><a href="https://arxiv.org/abs/1907.11692">Liu et al., 2019</a></td>
+</tr>
+<tr class="odd">
+<td><a href="https://arxiv.org/abs/1906.08237">XLNet</a></td>
+<td>Transformer Encoder</td>
+<td>Transfer learning, NLP tasks (classification, QA, NER)</td>
+<td>Monolingual (English)</td>
+<td>Permutation language modeling, better long-range dependencies</td>
+<td>110M (Base), 340M (Large)</td>
+<td><a href="https://arxiv.org/abs/1906.08237">Yang et al.,
+2019</a></td>
+</tr>
+<tr class="even">
+<td><a href="https://arxiv.org/abs/1909.11942">ALBERT</a></td>
+<td>Transformer Encoder</td>
+<td>Transfer learning, NLP tasks (classification, QA, NER)</td>
+<td>Monolingual (English)</td>
+<td>Lite BERT, parameter-efficient, cross-layer parameter sharing</td>
+<td>12M (Base), 18M (Large)</td>
+<td><a href="https://arxiv.org/abs/1909.11942">Lan et al., 2020</a></td>
+</tr>
+<tr class="odd">
+<td><a href="https://arxiv.org/abs/1911.02116">XLM-R</a></td>
+<td>Transformer Encoder</td>
+<td>Transfer learning, cross-lingual NLP tasks</td>
+<td>Multilingual (100+ languages)</td>
+<td>Multilingual pretraining, zero-shot cross-lingual transfer</td>
+<td>270M (Base), 550M (Large)</td>
+<td><a href="https://arxiv.org/abs/1911.02116">Conneau et al.,
+2020</a></td>
+</tr>
+<tr class="even">
+<td><a
+href="https://openai.com/blog/better-language-models/">GPT-2</a></td>
+<td>Transformer Decoder</td>
+<td>Text generation, open-ended language tasks</td>
+<td>Monolingual (English)</td>
+<td>Powerful autoregressive language model, zero-shot capabilities</td>
+<td>124M (Small), 355M (Medium), 774M (Large), 1.5B (XL)</td>
+<td><a
+href="https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf">Radford
+et al., 2019</a></td>
+</tr>
+<tr class="odd">
+<td><a href="https://arxiv.org/abs/2005.14165">GPT-3</a></td>
+<td>Transformer Decoder</td>
+<td>Text generation, open-ended language tasks</td>
+<td>Monolingual (English)</td>
+<td>Largest language model, few-shot learning, multimodal
+capabilities</td>
+<td>125M (Small), 1.3B (Medium), 3B (Large), 175B (XL)</td>
+<td><a href="https://arxiv.org/abs/2005.14165">Brown et al.,
+2020</a></td>
+</tr>
+<tr class="even">
+<td><a href="https://arxiv.org/abs/1802.05365">ELMo</a></td>
+<td>Bidirectional LSTM</td>
+<td>Transfer learning, NLP tasks (classification, QA, NER)</td>
+<td>Monolingual (English)</td>
+<td>Deep contextualized word representations, character-based</td>
+<td>94M</td>
+<td><a href="https://arxiv.org/abs/1802.05365">Peters et al.,
+2018</a></td>
+</tr>
+<tr class="odd">
+<td><a href="https://arxiv.org/abs/2007.01852">LaBSE</a></td>
+<td>Dual Encoder (BERT-based)</td>
+<td>Multilingual sentence embeddings</td>
+<td>Multilingual</td>
+<td>High-quality sentence embeddings, BERT-based architecture</td>
+<td>110M (Base), 340M (Large)</td>
+<td><a href="https://arxiv.org/abs/2007.01852">Feng et al.,
+2020</a></td>
+</tr>
+<tr class="even">
+<td><a href="https://arxiv.org/abs/1812.10464">LASER</a></td>
+<td>Dual Encoder</td>
+<td>Multilingual sentence embeddings</td>
+<td>Multilingual</td>
+<td>Lightweight, focused on generating sentence embeddings</td>
+<td>93M</td>
+<td><a href="https://arxiv.org/abs/1812.10464">Artetxe and Schwenk,
+2019</a></td>
+</tr>
+<tr class="odd">
+<td><a href="https://arxiv.org/abs/1801.06146">ULMFiT</a></td>
+<td>AWD-LSTM</td>
+<td>Transfer learning, text classification</td>
+<td>Monolingual (English)</td>
+<td>Discriminative fine-tuning, slanted triangular learning rates</td>
+<td>-</td>
+<td><a href="https://arxiv.org/abs/1801.06146">Howard and Ruder,
+2018</a></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
