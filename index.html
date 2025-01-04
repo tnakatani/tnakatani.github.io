@@ -8,10 +8,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="pandoc.css" />
@@ -23,52 +28,125 @@
 <header id="title-block-header">
 <h1 class="title">Taichi Nakatani</h1>
 </header>
-<p><a href="https://www.amazon.science/author/taichi-nakatani">Data Scientist @ Amazon</a> | <a href="https://github.com/tnakatani">Github</a> | <a href="https://scholar.google.com/citations?user=GZHv6zIAAAAJ">Google Scholar</a></p>
+<p><a href="https://www.amazon.science/author/taichi-nakatani">Data
+Scientist @ Amazon</a> | <a
+href="https://github.com/tnakatani">Github</a> | <a
+href="https://scholar.google.com/citations?user=GZHv6zIAAAAJ">Google
+Scholar</a></p>
 <h2 id="publications">Publications</h2>
 <ul>
-<li><a href="https://aclanthology.org/2024.ecnlp-1.6/">Don’t Just Translate, Summarize Too: Cross-lingual Product Title Generation in E-commerce (LREC-COLING 2024 Workshop on e-Commerce and NLP)</a></li>
-<li><a href="https://www.amazon.science/publications/improve-machine-translation-in-e-commerce-multilingual-search-with-contextual-signal-from-search-sessions">Improve machine translation in e-commerce multilingual search with contextual signal from search sessions (SIGIR 2023 Workshop on eCommerce)</a></li>
-<li><a href="https://www.amazon.science/publications/comparing-data-augmentation-and-annotation-standardization-to-improve-end-to-end-spoken-language-understanding-models">Comparing data augmentation and annotation standardization to improve end-to-end spoken language understanding models (NeurIPS 2021 Workshop on Data-Centric AI)</a></li>
+<li><a
+href="https://data-centric-ai-dev.github.io/CIKM2024/#accepted_paper">Bryan
+Zhang, Taichi Nakatani, Stephan Walter, “Enhancing e-commerce product
+title translation with retrieval-augmented generation and large language
+models”, CIKM 2024 Workshop on Data-Centric AI</a></li>
+<li><a href="https://aclanthology.org/2024.acl-long.750/">Greg Hanneman,
+Natawut Monaikul, Taichi Nakatani, “Impacts of misspelled queries on
+translation and product search”, ACL 2024</a></li>
+<li><a href="https://aclanthology.org/2024.ecnlp-1.6/">Bryan Zhang,
+Taichi Nakatani, Daniel Vidal Hussey, Stephan Walter, Liling Tan, “Don’t
+Just Translate, Summarize Too: Cross-lingual Product Title Generation in
+E-commerce”, LREC-COLING 2024 Workshop on e-Commerce and NLP</a></li>
+<li><a
+href="https://www.amazon.science/publications/improve-machine-translation-in-e-commerce-multilingual-search-with-contextual-signal-from-search-sessions">Bryan
+Zhang, Taichi Nakatani, Stephan Walter, Amita Misra, Elizabeth
+Milkovits, “Improve machine translation in e-commerce multilingual
+search with contextual signal from search sessions”, SIGIR 2023 Workshop
+on eCommerce</a></li>
+<li><a
+href="https://www.amazon.science/publications/comparing-data-augmentation-and-annotation-standardization-to-improve-end-to-end-spoken-language-understanding-models">Leah
+Nicolich-Henkin, Taichi Nakatani, Zach Trozenski, Joel Whiteman, Nathan
+Susanj, “Comparing data augmentation and annotation standardization to
+improve end-to-end spoken language understanding models”, NeurIPS 2021
+Workshop on Data-Centric AI</a></li>
 </ul>
-<h2 id="georgia-tech-omscs---course-notes">Georgia Tech OMSCS - Course Notes</h2>
+<h2 id="georgia-tech-omscs---course-notes">Georgia Tech OMSCS - Course
+Notes</h2>
 <ol type="1">
-<li><a href="https://tnakatani.github.io/omscs/cs7646/cs7646_notes.html">CS7646 - Machine Learning for Trading</a></li>
-<li><a href="https://tnakatani.github.io/omscs/cs7637/cs7637_notes.html">CS7637 - Knowledge-based AI</a></li>
-<li><a href="https://tnakatani.github.io/omscs/cs6603/cs6603_notes.html">CS6603 - AI, Ethics and Society</a></li>
-<li><a href="https://tnakatani.github.io/omscs/isye6501/isye6501_notes.html">ISYE6501 - Introduction to Analytics Modeling</a></li>
+<li><a
+href="https://tnakatani.github.io/omscs/cs7646/cs7646_notes.html">CS7646
+- Machine Learning for Trading</a></li>
+<li><a
+href="https://tnakatani.github.io/omscs/cs7637/cs7637_notes.html">CS7637
+- Knowledge-based AI</a></li>
+<li><a
+href="https://tnakatani.github.io/omscs/cs6603/cs6603_notes.html">CS6603
+- AI, Ethics and Society</a></li>
+<li><a
+href="https://tnakatani.github.io/omscs/isye6501/isye6501_notes.html">ISYE6501
+- Introduction to Analytics Modeling</a></li>
 <li>CS7641 - Machine Learning
 <ul>
-<li><a href="https://tnakatani.github.io/omscs/cs7641/sl_notes.html">Supervised Learning notes</a></li>
-<li><a href="https://tnakatani.github.io/omscs/cs7641/ul_notes.html">Unsupervised Learning notes</a></li>
-<li><a href="https://tnakatani.github.io/omscs/cs7641/rl_notes.html">Reinforcement Learning notes</a></li>
+<li><a
+href="https://tnakatani.github.io/omscs/cs7641/sl_notes.html">Supervised
+Learning notes</a></li>
+<li><a
+href="https://tnakatani.github.io/omscs/cs7641/ul_notes.html">Unsupervised
+Learning notes</a></li>
+<li><a
+href="https://tnakatani.github.io/omscs/cs7641/rl_notes.html">Reinforcement
+Learning notes</a></li>
 </ul></li>
 <li>CS6750 - Human Computer Interaction (HCI)
 <ul>
-<li><a href="https://tnakatani.github.io/omscs/cs6750/cs6750_notes.html">Lecture Notes</a></li>
-<li><a href="https://tnakatani.github.io/omscs/cs6750/readings.html">Readings Notes</a></li>
+<li><a
+href="https://tnakatani.github.io/omscs/cs6750/cs6750_notes.html">Lecture
+Notes</a></li>
+<li><a
+href="https://tnakatani.github.io/omscs/cs6750/readings.html">Readings
+Notes</a></li>
 </ul></li>
 <li>CS7643 - Deep Learning
 <ul>
-<li><a href="https://tnakatani.github.io/omscs/cs7643/module_1.html">Module 1 notes</a></li>
-<li><a href="https://tnakatani.github.io/omscs/cs7643/module_2.html">Module 2 notes</a></li>
-<li><a href="https://tnakatani.github.io/omscs/cs7643/module_3.html">Module 3 notes</a></li>
-<li><a href="https://tnakatani.github.io/omscs/cs7643/dl_book_notes.html">Deep Learning (Goodfellow) notes</a></li>
+<li><a
+href="https://tnakatani.github.io/omscs/cs7643/module_1.html">Module 1
+notes</a></li>
+<li><a
+href="https://tnakatani.github.io/omscs/cs7643/module_2.html">Module 2
+notes</a></li>
+<li><a
+href="https://tnakatani.github.io/omscs/cs7643/module_3.html">Module 3
+notes</a></li>
+<li><a
+href="https://tnakatani.github.io/omscs/cs7643/dl_book_notes.html">Deep
+Learning (Goodfellow) notes</a></li>
 </ul></li>
 <li>CS7650 - Natural Language Processing</li>
+<li>CSE6250 - Big Data for Healthcare</li>
+<li>CS6515 - Graduate Algorithms</li>
+<li><a
+href="https://tnakatani.github.io/omscs/cs8001_oda/cs8001_oda_notes.html">CS8001
+- Data Structures and Algorithms</a></li>
 </ol>
 <h2 id="notes-from-books-moocs">Notes from Books / MOOCs</h2>
 <ul>
-<li><a href="https://tnakatani.github.io/books/pyspark/all_notes.html">Data Analysis with Python and PySpark (Rioux 2022)</a></li>
-<li><a href="https://tnakatani.github.io/books/grok_algos/grok_algo_notes.html">Grokking Algorithms (Bhagarva 2016)</a></li>
-<li><a href="https://tnakatani.github.io/books/r_for_ds/notes.html">R for Data Science (Grolemund, Wicknam 2016), partial chapters</a></li>
-<li><a href="https://tnakatani.github.io/moocs/la4ml/notes.html">Coursera (Imperial College of London) - Linear Algebra for Machine Learning (Incomplete)</a></li>
-<li><a href="https://tnakatani.github.io/moocs/coursera_linalg_for_ml/notes.html">Coursera (deeplearning.ai) - Linear Algebra for Machine Learning</a></li>
-<li><a href="https://tnakatani.github.io/moocs/coursera_calc_for_ml/notes.html">Coursera (deeplearning.ai) - Calculus for Machine Learning</a></li>
-<li><a href="https://tnakatani.github.io/books/python_workout/notes.html">Python Workout (Lerner, 2020)</a></li>
+<li><a
+href="https://tnakatani.github.io/books/pyspark/all_notes.html">Data
+Analysis with Python and PySpark (Rioux 2022)</a></li>
+<li><a
+href="https://tnakatani.github.io/books/grok_algos/grok_algo_notes.html">Grokking
+Algorithms (Bhagarva 2016)</a></li>
+<li><a href="https://tnakatani.github.io/books/r_for_ds/notes.html">R
+for Data Science (Grolemund, Wicknam 2016), partial chapters</a></li>
+<li><a
+href="https://tnakatani.github.io/moocs/la4ml/notes.html">Coursera
+(Imperial College of London) - Linear Algebra for Machine Learning
+(Incomplete)</a></li>
+<li><a
+href="https://tnakatani.github.io/moocs/coursera_linalg_for_ml/notes.html">Coursera
+(deeplearning.ai) - Linear Algebra for Machine Learning</a></li>
+<li><a
+href="https://tnakatani.github.io/moocs/coursera_calc_for_ml/notes.html">Coursera
+(deeplearning.ai) - Calculus for Machine Learning</a></li>
+<li><a
+href="https://tnakatani.github.io/books/python_workout/notes.html">Python
+Workout (Lerner, 2020)</a></li>
 </ul>
 <h2 id="notes-to-self">Notes-to-self</h2>
 <ul>
-<li><a href="https://tnakatani.github.io/posts/nbconvert.html">Configuring nb_convert CSS</a></li>
+<li><a
+href="https://tnakatani.github.io/posts/nbconvert.html">Configuring
+nb_convert CSS</a></li>
 </ul>
 </body>
 </html>

@@ -1,9 +1,11 @@
 [Data Scientist @ Amazon](https://www.amazon.science/author/taichi-nakatani) | [Github](https://github.com/tnakatani) | [Google Scholar](https://scholar.google.com/citations?user=GZHv6zIAAAAJ)
 
 ## Publications
-- [Don’t Just Translate, Summarize Too: Cross-lingual Product Title Generation in E-commerce (LREC-COLING 2024 Workshop on e-Commerce and NLP)](https://aclanthology.org/2024.ecnlp-1.6/)
-- [Improve machine translation in e-commerce multilingual search with contextual signal from search sessions (SIGIR 2023 Workshop on eCommerce)](https://www.amazon.science/publications/improve-machine-translation-in-e-commerce-multilingual-search-with-contextual-signal-from-search-sessions)
-- [Comparing data augmentation and annotation standardization to improve end-to-end spoken language understanding models (NeurIPS 2021 Workshop on Data-Centric AI)](https://www.amazon.science/publications/comparing-data-augmentation-and-annotation-standardization-to-improve-end-to-end-spoken-language-understanding-models)
+- [Bryan Zhang, Taichi Nakatani, Stephan Walter, "Enhancing e-commerce product title translation with retrieval-augmented generation and large language models", CIKM 2024 Workshop on Data-Centric AI](https://data-centric-ai-dev.github.io/CIKM2024/#accepted_paper)
+- [Greg Hanneman, Natawut Monaikul, Taichi Nakatani, "Impacts of misspelled queries on translation and product search", ACL 2024](https://aclanthology.org/2024.acl-long.750/)
+- [Bryan Zhang, Taichi Nakatani, Daniel Vidal Hussey, Stephan Walter, Liling Tan, "Don’t Just Translate, Summarize Too: Cross-lingual Product Title Generation in E-commerce", LREC-COLING 2024 Workshop on e-Commerce and NLP](https://aclanthology.org/2024.ecnlp-1.6/)
+- [Bryan Zhang, Taichi Nakatani, Stephan Walter, Amita Misra, Elizabeth Milkovits, "Improve machine translation in e-commerce multilingual search with contextual signal from search sessions", SIGIR 2023 Workshop on eCommerce](https://www.amazon.science/publications/improve-machine-translation-in-e-commerce-multilingual-search-with-contextual-signal-from-search-sessions)
+- [Leah Nicolich-Henkin, Taichi Nakatani, Zach Trozenski, Joel Whiteman, Nathan Susanj, "Comparing data augmentation and annotation standardization to improve end-to-end spoken language understanding models", NeurIPS 2021 Workshop on Data-Centric AI](https://www.amazon.science/publications/comparing-data-augmentation-and-annotation-standardization-to-improve-end-to-end-spoken-language-understanding-models)
 
 ## Georgia Tech OMSCS - Course Notes
 
@@ -24,6 +26,9 @@
     - [Module 3 notes](https://tnakatani.github.io/omscs/cs7643/module_3.html)
     - [Deep Learning (Goodfellow) notes](https://tnakatani.github.io/omscs/cs7643/dl_book_notes.html)
 8. CS7650 - Natural Language Processing
+9. CSE6250 - Big Data for Healthcare
+10. CS6515 - Graduate Algorithms
+11. [CS8001 - Data Structures and Algorithms](https://tnakatani.github.io/omscs/cs8001_oda/cs8001_oda_notes.html)
 
 ## Notes from Books / MOOCs
 
